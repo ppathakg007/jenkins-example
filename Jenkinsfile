@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment {
         MAVEN_HOME="/opt/apache-maven"
+    }
     stages {
         stage ('Compile Stage') {
 
