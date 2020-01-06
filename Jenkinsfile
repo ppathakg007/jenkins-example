@@ -7,8 +7,8 @@ pipeline {
         stage ('Compile Stage') {
 
             steps {
-                withMaven(maven : '/opt/apache-maven') {
-                    sh 'mvn clean compile'
+               // withMaven(maven : '/opt/apache-maven') {
+                sh '${MAVEN_HOME}/bin/mvn clean compile'
                 }
             }
         }
@@ -16,8 +16,8 @@ pipeline {
         stage ('Testing Stage') {
 
             steps {
-                withMaven(maven : 'maven_3_5_4') {
-                    sh 'mvn test'
+                //withMaven(maven : 'maven_3_5_4') {
+                    sh '${MAVEN_HOME}/bin/mvn test'
                 }
             }
         }
@@ -25,8 +25,8 @@ pipeline {
 
         stage ('Deployment Stage') {
             steps {
-                withMaven(maven : 'maven_3_5_4') {
-                    sh 'mvn deploy'
+                //withMaven(maven : 'maven_3_5_4') {
+                    sh '${MAVEN_HOME}/bin/mvn deploy'
                 }
             }
         }
